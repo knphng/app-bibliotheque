@@ -9,22 +9,36 @@
 <html>
 <head>
     <title>Connexion</title>
-    <%@ include file="entete.jsp" %>
+    <%@ include file="../entete.jsp" %>
 
 </head>
 <body>
-    <div class="row" id="placeMenu" style="width:100%">
-        <%@ include file="menu.jsp" %>
+    <div class="" id="placeMenu" style="width:100%">
+        <%@ include file="../menu.jsp" %>
     </div>
     <br><br>
     <div class="container">
-        <form method=post action="j_security_check">
+        <div class="msgErreur" style="color:red">
+            <%
+                if(request.getAttribute("error")  == null){
+            %>
+            <%
+                }else{
+            %>
+                <%= request.getAttribute("error") %>
+            <%
+                }
+            %>
+            <br><br>
+        </div>
+
+        <form method=post action="login">
             <div class="row">
                 <div class="col-md-2">
                     <label>Identifiant : </label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name= "j_username" />
+                    <input type="text" name= "username" />
                 </div>
             </div>
             <div class="row">
@@ -32,7 +46,7 @@
                     <label>Mot de passe : </label>
                 </div>
                 <div class="col-md-8">
-                    <input type="password" name= "j_password" />
+                    <input type="password" name= "password" />
                 </div>
             </div>
 
@@ -40,7 +54,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <input type="submit" class="btn btn-default" value="Login" />
+                    <input type="submit" class="btn btn-default" value="Se connecter" />
                 </div>
             </div>
         </form>

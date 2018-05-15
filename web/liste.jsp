@@ -12,9 +12,10 @@
     <%@ include file="entete.jsp" %>
 </head>
 <body>
-    <div class="row" id="placeMenu" style="width:100%">
+    <div class="" id="placeMenu" style="width:100%">
         <%@ include file="menu.jsp" %>
     </div>
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
