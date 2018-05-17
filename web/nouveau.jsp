@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <button class="btn btn-default" id="saveNouveauLivre">Nouveau</button>
+                    <button class="btn btn-default" id="saveNouveauLivre">Cr&eacute;er</button>
                 </div>
             </div>
         </form>

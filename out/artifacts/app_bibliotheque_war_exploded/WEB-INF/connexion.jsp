@@ -18,6 +18,11 @@
     </div>
     <br><br>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Connectez-vous !</h3>
+            </div>
+        </div>
         <div class="msgErreur" style="color:red">
             <%
                 if(request.getAttribute("error")  == null){
