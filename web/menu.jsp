@@ -1,4 +1,4 @@
-<%@ page import="servlet.Login" %>
+<%@ page import="ch.hesge.programmation.servlet.Login" %>
 
 
 <%--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">--%>

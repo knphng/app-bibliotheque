@@ -1,4 +1,4 @@
-package servlet;
+package ch.hesge.programmation.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
