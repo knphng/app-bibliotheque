@@ -1,4 +1,4 @@
-<%@ page import="servlet.Login" %>
+<%@ page import="ch.hesge.programmation.servlet.Login" %>
 
 
 <%--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">--%>
@@ -45,7 +45,7 @@
     <div class="navbar-collapse collapse justify-content-center" id="collapsingNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="liste.jsp"><b>Livres</b></a>
+                <a class="nav-link" href="listeLivres"><b>Livres</b></a>
             </li>
         </ul>
     </div>
@@ -53,11 +53,13 @@
         <%
             if(request.isUserInRole(Login.UserRoleAccepted) == true){
         %>
-        <button class="btn btn-outline my-2 my-sm-0" ><a href="logout" style="color:black">D&eacute;connexion</a></button>
+            <%--<button class="btn btn-outline my-2 my-sm-0" ><a href="logout" style="color:black">D&eacute;connexion</a></button>--%>
+            <a href="logout"><input type="submit" class="btn btn-outline-dark" value="D&eacute;connexion"></a>
         <%
         }else{
         %>
-        <button class="btn btn-outline my-2 my-sm-0"><a href="login" style="color:black">Connexion</a></button>
+            <%--<button class="btn btn-outline my-2 my-sm-0"><a href="login" style="color:black">Connexion</a></button>--%>
+            <a href="login"><input type="submit" class="btn btn-outline-light" value="Connexion"></a>
         <%
             }
         %>

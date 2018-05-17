@@ -23,6 +23,7 @@
                 <h3>Connectez-vous !</h3>
             </div>
         </div>
+        <br>
         <div class="msgErreur" style="color:red">
             <%
                 if(request.getAttribute("error")  == null){
@@ -30,11 +31,13 @@
             <%
                 }else{
             %>
-                <%= request.getAttribute("error") %>
+                <div class="alert alert-danger" role="alert">
+                    <%= request.getAttribute("error") %>
+                </div>
             <%
                 }
             %>
-            <br><br>
+            <br>
         </div>
 
         <form method=post action="login">
@@ -59,7 +62,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <input type="submit" class="btn btn-default" value="Se connecter" />
+                    <input type="submit" class="btn btn-outline-dark" value="Se connecter" />
                 </div>
             </div>
         </form>

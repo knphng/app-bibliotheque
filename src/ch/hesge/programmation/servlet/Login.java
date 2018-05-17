@@ -13,22 +13,24 @@ public class Login extends HttpServlet {
     public static String UserRoleAccepted = "USER";
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/connexion.jsp").forward(req,resp);
-        req.setAttribute("param","param");
-    }
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getParameter("username");
-        String password = req.getParameter("password");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String login = request.getParameter("username");
+        String password = request.getParameter("password");
         try{
-            req.login(login,password);
-            resp.sendRedirect("index.jsp");
-            req.setAttribute("error" ,"");
+            request.login(login,password);
+            response.sendRedirect("index.jsp");
+            request.setAttribute("error" ,"");
+            request.getSession().setAttribute("authentified", true);
         }
         catch(ServletException e){
-            req.setAttribute("error" ,"Identifiant / mot de passe erroné");
-            req.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(req, resp);
+            request.setAttribute("error" ,"Identifiant / mot de passe erroné");
+            request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("WEB-INF/connexion.jsp").forward(request,response);
+        request.setAttribute("param","param");
     }
 }
