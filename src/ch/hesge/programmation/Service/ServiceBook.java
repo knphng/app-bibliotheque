@@ -22,10 +22,9 @@ public class ServiceBook {
     public List<Book> listBook () {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Book> cq = cb.createQuery(Book.class);
-        Root<Book> book = cq.from(Book.class);
+        cq.from(Book.class);
         TypedQuery<Book> q = em.createQuery(cq);
-        List<Book> books = q.getResultList();
-        return books;
+        return q.getResultList();
     }
 
     public void addBook(Book b){
