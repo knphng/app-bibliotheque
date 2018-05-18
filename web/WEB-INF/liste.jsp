@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="" id="placeMenu" style="width:100%">
-        <%@ include file="../menu.jsp" %>
+        <%@ include file="menu.jsp" %>
     </div>
     <br><br>
     <div class="container">
