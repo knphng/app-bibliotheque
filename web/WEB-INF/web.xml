@@ -10,4 +10,36 @@
         <error-code>404</error-code>
         <location>/WEB-INF/404.jsp</location>
     </error-page>
+    <servlet>
+        <servlet-name>ListeLivres</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.ListeLivres</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListeLivres</servlet-name>
+        <url-pattern>/livres</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NewBook</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.NewBook</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewBook</servlet-name>
+        <url-pattern>/newlivre</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 </web-app>
