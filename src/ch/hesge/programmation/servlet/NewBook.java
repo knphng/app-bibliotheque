@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
-@WebServlet("/newBook")
 public class NewBook extends HttpServlet {
     private ServiceBook serviceBook;
 
@@ -21,6 +20,9 @@ public class NewBook extends HttpServlet {
     public NewBook(ServiceBook servBook) {
         this.serviceBook = servBook;
     }
+
+    //default contructor
+    public NewBook(){}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
@@ -32,16 +34,16 @@ public class NewBook extends HttpServlet {
             serviceBook.addBook(newOne);
             serviceBook.listBook();
             request.setAttribute("error" ,"Ok");
-            request.getRequestDispatcher("/WEB-INF/nouveau.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request, response);
         }
         catch(ServletException e){
             request.setAttribute("error" ,"Fail");
-            request.getRequestDispatcher("/WEB-INF/nouveau.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request, response);
         }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/nouveau.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request,response);
     }
 }

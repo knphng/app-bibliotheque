@@ -12,17 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/listeLivres")
-public class ListeLivres extends HttpServlet {
+public class Books extends HttpServlet {
 
     private ServiceBook serviceBook;
     private List<Book> lstBooks;
 
     @Inject
-    public ListeLivres(ServiceBook servBook) {
+    public Books(ServiceBook servBook) {
         this.serviceBook = servBook;
     }
 
+    //default contructor
+    public Books() {}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,6 +32,6 @@ public class ListeLivres extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         lstBooks = serviceBook.listBook();
         request.setAttribute("listeLivre", lstBooks);
-        request.getRequestDispatcher("WEB-INF/liste.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/list.jsp").forward(request, response);
     }
 }

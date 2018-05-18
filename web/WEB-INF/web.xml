@@ -11,12 +11,12 @@
         <location>/WEB-INF/404.jsp</location>
     </error-page>
     <servlet>
-        <servlet-name>ListeLivres</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.ListeLivres</servlet-class>
+        <servlet-name>Books</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.Books</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ListeLivres</servlet-name>
-        <url-pattern>/livres</url-pattern>
+        <servlet-name>Books</servlet-name>
+        <url-pattern>/books</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>NewBook</servlet-name>
@@ -24,7 +24,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>NewBook</servlet-name>
-        <url-pattern>/newlivre</url-pattern>
+        <url-pattern>/new</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
