@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="ch.hesge.programmation.Domain.Book" %><%--
+<%@ page import="ch.hesge.programmation.Domain.Book" %>
+<%@ page import="ch.hesge.programmation.servlet.LoginServlet" %><%--
   Created by IntelliJ IDEA.
   User: delia
   Date: 09.05.2018
@@ -28,7 +29,7 @@
                         <th>Editeur</th>
                         <th>Ann&eacute;e</th>
                         <%
-                            if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                            if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                         %>
                             <th></th>
                         <%
@@ -52,7 +53,7 @@
                                 <td> <%= editor %></td>
                                 <td> <%= year %></td>
                                 <%
-                                    if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                                 %>
                                 <th>
                                     <%--<button type="button" class="btn btn-default" aria-label="Right Align">--%>
@@ -76,7 +77,7 @@
             <div class="col-md-11"></div>
             <div class="col-md-1" style="float:right">
                 <%
-                    if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                 %>
                     <%--<button class="btn btn-outline-info" id="ouvrirModalNouveauLivre">Nouveau</button>--%>
                     <a href="newBook"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>

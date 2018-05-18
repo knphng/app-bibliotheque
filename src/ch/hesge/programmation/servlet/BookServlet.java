@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class Books extends HttpServlet {
+public class BookServlet extends HttpServlet {
 
     private ServiceBook serviceBook;
     private List<Book> lstBooks;
 
     @Inject
-    public Books(ServiceBook servBook) {
+    public BookServlet(ServiceBook servBook) {
         this.serviceBook = servBook;
     }
 
     //default contructor
-    public Books() {}
+    public BookServlet() {}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

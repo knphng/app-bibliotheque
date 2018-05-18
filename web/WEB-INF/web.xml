@@ -12,7 +12,7 @@
     </error-page>
     <servlet>
         <servlet-name>Books</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.Books</servlet-class>
+        <servlet-class>ch.hesge.programmation.servlet.BookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Books</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>NewBook</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.NewBook</servlet-class>
+        <servlet-class>ch.hesge.programmation.servlet.NewBookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewBook</servlet-name>
@@ -28,7 +28,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.Login</servlet-class>
+        <servlet-class>ch.hesge.programmation.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -36,7 +36,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.Logout</servlet-class>
+        <servlet-class>ch.hesge.programmation.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>

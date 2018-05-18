@@ -1,4 +1,4 @@
-<%@ page import="ch.hesge.programmation.servlet.Login" %>
+<%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
 
 
 <%--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">--%>
@@ -20,7 +20,7 @@
     <%--</div>--%>
     <%--<div style="float:right">--%>
         <%--<%--%>
-            <%--if(request.isUserInRole(Login.UserRoleAccepted) == true){--%>
+            <%--if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){--%>
         <%--%>--%>
         <%--<button class="btn btn-outline my-2 my-sm-0" ><a href="logout" style="color:black">D&eacute;connexion</a></button>--%>
         <%--<%--%>
@@ -51,7 +51,7 @@
     </div>
     <span class="navbar-text small text-truncate mt-1 w-50 text-right">
         <%
-            if(request.isUserInRole(Login.UserRoleAccepted) == true){
+            if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
         %>
             <%--<button class="btn btn-outline my-2 my-sm-0" ><a href="logout" style="color:black">D&eacute;connexion</a></button>--%>
             <a href="logout"><input type="submit" class="btn btn-outline-dark" value="D&eacute;connexion"></a>
