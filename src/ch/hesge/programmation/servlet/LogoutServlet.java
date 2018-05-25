@@ -8,8 +8,9 @@ import java.io.IOException;
 
 public class LogoutServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.logout();
-        resp.sendRedirect("index.jsp");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.logout();
+        //response.sendRedirect("index.jsp");
+        request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
     }
 }

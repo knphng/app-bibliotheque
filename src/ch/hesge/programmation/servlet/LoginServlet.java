@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         try {
             request.login(login, password);
-            response.sendRedirect("index.jsp");
+            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
             request.setAttribute("status", "ok");
             request.getSession().setAttribute("authentified", true);
         } catch (ServletException e) {
