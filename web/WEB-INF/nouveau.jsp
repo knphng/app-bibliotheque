@@ -44,7 +44,7 @@
             %>
             <br>
         </div>
-        <form method="post" action="">
+        <form method="post" action="newBook">
             <div class="row">
                 <div class="col-md-3">
                     <label>Titre : </label>
@@ -81,12 +81,12 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="year"/>
+                        <input type="text" class="form-control" name="year" onkeyup="verificationAnnee(this);"/>
                     </div>
                 </div>
             </div>
             <br><br>
-            <a href="newBook"><input type="submit" class="btn btn-outline-success" value="Cr&eacute;er" id="saveNouveauLivre"></a>
+            <input type="submit" class="btn btn-outline-success" value="Cr&eacute;er" id="saveNouveauLivre">
         </form>
     </div>
 </body>
@@ -98,5 +98,21 @@
     <%
         }
     %>
+
+    function verificationAnnee(champ) {
+        var chiffres = new RegExp("[0-9]");
+        var verif;
+        for(x = 0; x < champ.value.length; x++)
+        {
+            verif = chiffres.test(champ.value.charAt(x));
+            if(champ.value.length>4){
+                verif=false;
+            }
+
+            if(verif == false){
+                champ.value = champ.value.substr(0,x) + champ.value.substr(x+1,champ.value.length-x+1); x--;
+            }
+        }
+    }
 </script>
 </html>

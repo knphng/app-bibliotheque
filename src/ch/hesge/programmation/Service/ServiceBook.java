@@ -18,21 +18,23 @@ public class ServiceBook {
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional
     public List<Book> listBook () {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Book> cq = cb.createQuery(Book.class);
         cq.from(Book.class);
         TypedQuery<Book> q = em.createQuery(cq);
-        return q.getResultList();
+        List<Book> books = q.getResultList();
+        return books;
     }
 
+    @Transactional
     public void addBook(Book b){
         em.persist(b);
     }
 
-    public void deleteBook(Book b){
-        Book book = em.find(Book.class,b.getId());
+    public void deleteBook(int id){
+        Book book = em.find(Book.class,id);
         em.remove(book);
     }
+
 }
