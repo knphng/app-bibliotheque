@@ -1,7 +1,7 @@
 package ch.hesge.programmation.servlet;
 
-import ch.hesge.programmation.Domain.Book;
-import ch.hesge.programmation.Service.ServiceBook;
+import ch.hesge.programmation.domain.Book;
+import ch.hesge.programmation.service.ServiceBook;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;

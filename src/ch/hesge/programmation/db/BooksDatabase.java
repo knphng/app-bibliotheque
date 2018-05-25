@@ -1,7 +1,7 @@
 package ch.hesge.programmation.db;
 
-import ch.hesge.programmation.Service.ServiceBook;
-import ch.hesge.programmation.Domain.Book;
+import ch.hesge.programmation.service.ServiceBook;
+import ch.hesge.programmation.domain.Book;
 import javax.inject.Inject;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -19,7 +19,6 @@ public class BooksDatabase implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        //serviceBook.deleteAll();
         Book firstBook = new Book("La Disparition de Stephanie Mailer", "Joël Dicker", " Editions Le Fallois", 2018);
         Book secondBook = new Book("La Vérité sur l’Affaire Harry Quebert", "Joël Dicker", " Editions de Fallois / Age d’Homme", 2012);
         if(serviceBook.listBook().size() <= 0){

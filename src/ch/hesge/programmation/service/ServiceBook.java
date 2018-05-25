@@ -1,6 +1,6 @@
-package ch.hesge.programmation.Service;
+package ch.hesge.programmation.service;
 
-import ch.hesge.programmation.Domain.Book;
+import ch.hesge.programmation.domain.Book;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

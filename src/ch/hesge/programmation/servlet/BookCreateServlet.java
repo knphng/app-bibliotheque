@@ -1,7 +1,7 @@
 package ch.hesge.programmation.servlet;
 
-import ch.hesge.programmation.Domain.Book;
-import ch.hesge.programmation.Service.ServiceBook;
+import ch.hesge.programmation.domain.Book;
+import ch.hesge.programmation.service.ServiceBook;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -30,16 +30,16 @@ public class BookCreateServlet extends HttpServlet {
             Book newOne = new Book(title, author, editor, year);
             serviceBook.addBook(newOne);
             serviceBook.listBook();
-            request.setAttribute("error", "Ok");
-            request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request, response);
+            request.setAttribute("status", "created");
+            request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
         } catch (ServletException e) {
-            request.setAttribute("error", "Fail");
-            request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request, response);
+            request.setAttribute("status", "failed");
+            request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
         }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/new.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
     }
 }
