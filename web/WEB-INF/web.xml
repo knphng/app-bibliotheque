@@ -49,7 +49,8 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secure pages</web-resource-name>
-            <url-pattern>/new</url-pattern>
+            <url-pattern>/create</url-pattern>
+            <url-pattern>/delete</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>USER</role-name>
