@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Welcome</title>
-    <%--<%@ include file="WEB-INF/entete.jsp" %>--%>
+    <%@ include file="WEB-INF/entete.jsp" %>
 </head>
 <body>
 <div class="" id="placeMenu" style="width:100%">
-    <%--<%@ include file="WEB-INF/menu.jsp" %>--%>
+    <%@ include file="WEB-INF/menu.jsp" %>
 </div>
 <br><br>
 <div class="container">
