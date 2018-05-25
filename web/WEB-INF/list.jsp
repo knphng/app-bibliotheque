@@ -68,7 +68,7 @@
                                     <th>
                                         <div class="btn-toolbar mb-3" role="toolbar">
                                             <div class="btn-group mr-2" role="group">
-                                                <a href="#">
+                                                <a href="updateBook">
                                                     <button class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
                                                         <i class="far fa-edit"></i>
                                                     </button>
