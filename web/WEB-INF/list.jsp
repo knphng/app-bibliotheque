@@ -66,12 +66,23 @@
                                         </div>
                                     </td>
                                     <th>
-                                        <form method="post" action="delete">
-                                            <input type="hidden" name="bookId" value="<%= id %>"/>
-                                            <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
+                                        <div class="btn-toolbar mb-3" role="toolbar">
+                                            <div class="btn-group mr-2" role="group">
+                                                <a href="#">
+                                                    <button class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                            <div class="btn-group mr-2" role="group">
+                                                <form method="post" action="delete">
+                                                    <input type="hidden" name="bookId" value="<%= id %>"/>
+                                                    <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </th>
                                 <%
                                     } else {
