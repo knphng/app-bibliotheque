@@ -7,6 +7,14 @@
         <role-name>USER</role-name>
     </security-role>
     <servlet>
+        <servlet-name>Default</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.DefaultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Default</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>Books</servlet-name>
         <servlet-class>ch.hesge.programmation.servlet.BookServlet</servlet-class>
     </servlet>
@@ -64,7 +72,8 @@
         <error-code>404</error-code>
         <location>/WEB-INF/errors/404.jsp</location>
     </error-page>
-    <error-page>
-        <location>/WEB-INF/errors/global.jsp</location>
-    </error-page>
+    <!--@todo uncomment when all done and all working-->
+    <!--<error-page>-->
+        <!--<location>/WEB-INF/errors/global.jsp</location>-->
+    <!--</error-page>-->
 </web-app>

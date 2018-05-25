@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Connexion</title>
-    <%@ include file="../entete.jsp" %>
+    <%@ include file="entete.jsp" %>
 
 </head>
 <body>
@@ -19,13 +19,10 @@
         <br>
         <div class="msgErreur" style="color:red">
             <%
-                if(request.getAttribute("error")  == null){
-            %>
-            <%
-                }else{
+                if(request.getAttribute("status")  != "ok"){
             %>
                 <div class="alert alert-danger" role="alert">
-                    <%= request.getAttribute("error") %>
+                    <%= request.getAttribute("status") %>
                 </div>
             <%
                 }

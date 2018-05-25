@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Liste des livres</title>
-    <%@ include file="../entete.jsp" %>
+    <%@ include file="entete.jsp" %>
 </head>
 <body>
     <div class="" id="placeMenu" style="width:100%">
@@ -18,16 +18,13 @@
         <br>
         <div class="msgErreur" style="color:red">
             <%
-                if(request.getAttribute("error")  == null){
-            %>
-            <%
-                } else  if(request.getAttribute("error") == "Ok") {
+                if(request.getAttribute("status") == "created") {
             %>
                 <div class="alert alert-success" role="alert">
                     Le livre a &eacute;t&eacute; ajout&eacute; avec succ&egrave;s !
                 </div>
             <%
-            } else  if(request.getAttribute("error") == "Fail") {
+            } else  if(request.getAttribute("status") == "failed") {
             %>
                 <div class="alert alert-danger" role="alert">
                     Un probl&egrave;me est survenu. Veuillez contacter votre administrateur !
@@ -85,7 +82,7 @@
 </body>
 
 <script>
-    <% if (request.getAttribute("error") == "Ok") { %>
+    <% if (request.getAttribute("status") == "Ok") { %>
         var delay = 2000;
         setTimeout(function(){ window.location = "listeLivres"; }, delay);
     <%

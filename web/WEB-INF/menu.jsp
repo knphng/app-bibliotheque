@@ -41,13 +41,13 @@
     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
         <ul class="navbar-nav w-100 justify-content-center">
             <li class="nav-item active">
-                <a class="nav-link" href="listeLivres">Livres</a>
+                <a class="nav-link" href="books">Livres</a>
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
                 <%
-                    if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                 %>
                 <%--<button class="btn btn-outline my-2 my-sm-0" ><a href="logout" style="color:black">D&eacute;connexion</a></button>--%>
                     <a href="logout"><input type="submit" class="btn btn-outline-dark" value="D&eacute;connexion"></a>
