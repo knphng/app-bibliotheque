@@ -46,7 +46,9 @@
                     <label>Identifiant : </label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name= "username" />
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username"/>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -54,14 +56,16 @@
                     <label>Mot de passe : </label>
                 </div>
                 <div class="col-md-8">
-                    <input type="password" name= "password" />
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password"/>
+                    </div>
                 </div>
             </div>
 
             <br><br>
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-8"></div>
+                <div class="col-md-2" style="float:right">
                     <input type="submit" class="btn btn-outline-dark" value="Se connecter" />
                 </div>
             </div>

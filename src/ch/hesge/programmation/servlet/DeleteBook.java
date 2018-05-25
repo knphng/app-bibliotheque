@@ -10,28 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-public class BookServlet extends HttpServlet {
-
+@WebServlet("/deleteBook")
+public class DeleteBook extends HttpServlet {
     private final ServiceBook serviceBook;
-    private List<Book> lstBooks;
 
     @Inject
-    public BookServlet(ServiceBook servBook) {
-        this.serviceBook = servBook;
+    public DeleteBook(ServiceBook serviceBook) {
+        this.serviceBook = serviceBook;
     }
-
-    //default contructor
-    public BookServlet() {}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        int idBook = Integer.parseInt(request.getParameter("bookId"));
+        serviceBook.deleteBook(idBook);
+        serviceBook.listBook();
+        request.setAttribute("errorDelete", "Ok");
+        response.sendRedirect("/listeLivres");
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        lstBooks = serviceBook.listBook();
-        request.setAttribute("listeLivre", lstBooks);
-        request.getRequestDispatcher("WEB-INF/list.jsp").forward(request, response);
+
     }
 }
