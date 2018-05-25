@@ -15,12 +15,20 @@
         <url-pattern>/books</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>NewBook</servlet-name>
-        <servlet-class>ch.hesge.programmation.servlet.NewBookServlet</servlet-class>
+        <servlet-name>CreateBook</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.BookCreateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>NewBook</servlet-name>
-        <url-pattern>/new</url-pattern>
+        <servlet-name>CreateBook</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteBook</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.BookDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBook</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>

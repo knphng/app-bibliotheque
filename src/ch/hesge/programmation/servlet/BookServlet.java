@@ -5,7 +5,6 @@ import ch.hesge.programmation.Service.ServiceBook;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class BookServlet extends HttpServlet {
 
-    private final ServiceBook serviceBook;
+    private ServiceBook serviceBook;
     private List<Book> lstBooks;
 
     @Inject
@@ -23,7 +22,7 @@ public class BookServlet extends HttpServlet {
     }
 
     //default contructor
-    public BookServlet() {}
+    public BookServlet() { }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

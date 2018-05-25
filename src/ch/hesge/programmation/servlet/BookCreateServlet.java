@@ -13,16 +13,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
-public class NewBookServlet extends HttpServlet {
+public class BookCreateServlet extends HttpServlet {
     private ServiceBook serviceBook;
 
     @Inject
-    public NewBookServlet(ServiceBook servBook) {
+    public BookCreateServlet(ServiceBook servBook) {
         this.serviceBook = servBook;
     }
 
     //default contructor
-    public NewBookServlet(){}
+    public BookCreateServlet(){}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
