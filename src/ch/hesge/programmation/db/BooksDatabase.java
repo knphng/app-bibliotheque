@@ -1,7 +1,7 @@
 package ch.hesge.programmation.db;
 
 import ch.hesge.programmation.Service.ServiceBook;
-import  ch.hesge.programmation.Domain.Book;
+import ch.hesge.programmation.Domain.Book;
 import javax.inject.Inject;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
