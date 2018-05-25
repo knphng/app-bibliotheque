@@ -1,17 +1,14 @@
 package ch.hesge.programmation.servlet;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+public class DefaultServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.logout();
-        resp.sendRedirect("index.jsp");
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

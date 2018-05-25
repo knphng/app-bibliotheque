@@ -6,8 +6,74 @@
     <security-role>
         <role-name>USER</role-name>
     </security-role>
+    <servlet>
+        <servlet-name>Default</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.DefaultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Default</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Books</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.BookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Books</servlet-name>
+        <url-pattern>/books</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateBook</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.BookCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateBook</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteBook</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.BookDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBook</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>ch.hesge.programmation.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure pages</web-resource-name>
+            <url-pattern>/create</url-pattern>
+            <url-pattern>/delete</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>USER</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/errors/403.jsp</location>
+    </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/404.jsp</location>
+        <location>/WEB-INF/errors/404.jsp</location>
     </error-page>
+    <!--@todo uncomment when all done and all working-->
+    <!--<error-page>-->
+        <!--<location>/WEB-INF/errors/global.jsp</location>-->
+    <!--</error-page>-->
 </web-app>

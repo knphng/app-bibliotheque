@@ -1,21 +1,15 @@
 <%@ page import="java.util.List" %>
-<%@ page import="ch.hesge.programmation.Domain.Book" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: delia
-  Date: 09.05.2018
-  Time: 14:07
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="ch.hesge.programmation.domain.Book" %>
+<%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Liste des livres</title>
-    <%@ include file="../entete.jsp" %>
+    <%@ include file="entete.jsp" %>
 </head>
 <body>
     <div class="" id="placeMenu" style="width:100%">
-        <%@ include file="../menu.jsp" %>
+        <%@ include file="menu.jsp" %>
     </div>
     <br><br>
     <div class="container">
@@ -29,7 +23,7 @@
                         <th>Editeur</th>
                         <th>Ann&eacute;e</th>
                         <%
-                            if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                            if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                         %>
                             <th></th>
                         <%
@@ -49,7 +43,7 @@
                         %>
                             <tr>
                                 <%
-                                    if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                                 %>
                                     <td>
                                         <div class="form-group">
@@ -72,10 +66,9 @@
                                         </div>
                                     </td>
                                     <th>
-                                        <form method="post" action="deleteBook">
+                                        <form method="post" action="delete">
                                             <input type="hidden" name="bookId" value="<%= id %>"/>
                                             <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
-                                                <!--<i class="fas fa-trash-alt" id="trash"></i>-->
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
@@ -101,10 +94,10 @@
             <div class="col-md-11"></div>
             <div class="col-md-1" style="float:right">
                 <%
-                    if(request.isUserInRole(Login.UserRoleAccepted) == true){
+                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                 %>
                     <%--<button class="btn btn-outline-info" id="ouvrirModalNouveauLivre">Nouveau</button>--%>
-                    <a href="newBook"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>
+                    <a href="create"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>
                 <%
                     }
                 %>

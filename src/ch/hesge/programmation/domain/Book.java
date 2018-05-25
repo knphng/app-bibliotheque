@@ -1,4 +1,4 @@
-package ch.hesge.programmation.Domain;
+package ch.hesge.programmation.domain;
 
 
 import javax.persistence.Entity;

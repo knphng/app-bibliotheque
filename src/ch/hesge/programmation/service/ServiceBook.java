@@ -1,6 +1,6 @@
-package ch.hesge.programmation.Service;
+package ch.hesge.programmation.service;
 
-import ch.hesge.programmation.Domain.Book;
+import ch.hesge.programmation.domain.Book;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import java.util.List;
 
