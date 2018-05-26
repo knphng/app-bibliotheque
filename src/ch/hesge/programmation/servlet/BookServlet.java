@@ -17,8 +17,8 @@ public class BookServlet extends HttpServlet {
     private List<Book> lstBooks;
 
     @Inject
-    public BookServlet(ServiceBook servBook) {
-        this.serviceBook = servBook;
+    public BookServlet(ServiceBook serviceBook) {
+        this.serviceBook = serviceBook;
     }
 
     //default contructor

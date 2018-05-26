@@ -34,7 +34,7 @@
             %>
             <br>
         </div>
-        <form method="post" action="newBook">
+        <form method="post" action="create">
             <div class="row">
                 <div class="col-md-3">
                     <label>Titre : </label>
