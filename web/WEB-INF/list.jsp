@@ -2,9 +2,11 @@
 <%@ page import="ch.hesge.programmation.domain.Book" %>
 <%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Liste des livres</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <%@ include file="entete.jsp" %>
 </head>
 <body>
@@ -26,6 +28,7 @@
                             if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                         %>
                             <th></th>
+                            <th></th>
                         <%
                             }
                         %>
@@ -45,45 +48,42 @@
                                 <%
                                     if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                                 %>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="titleInput" value="<%= title %>"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="authorInput" value="<%= author %>"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="editorInput" value="<%= editor %>"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="yearInput" value="<%= year %>"/>
-                                        </div>
-                                    </td>
-                                    <th>
-                                        <div class="btn-toolbar mb-3" role="toolbar">
-                                            <div class="btn-group mr-2" role="group">
-                                                <a href="updateBook">
-                                                    <button class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
-                                                        <i class="far fa-edit"></i>
-                                                    </button>
-                                                </a>
+                                    <form action="update" method="post">
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="titleInput" value="<%= title %>"/>
                                             </div>
-                                            <div class="btn-group mr-2" role="group">
-                                                <form method="post" action="delete">
-                                                    <input type="hidden" name="bookId" value="<%= id %>"/>
-                                                    <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="authorInput" value="<%= author %>"/>
                                             </div>
-                                        </div>
-                                    </th>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="editorInput" value="<%= editor %>"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="yearInput" value="<%= year %>"/>
+                                                <input type="hidden" class="form-control" name="idInput" value="<%= id %>"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </form>
+                                    <td>
+                                        <form method="post" action="delete">
+                                            <input type="hidden" name="bookId" value="<%= id %>"/>
+                                            <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 <%
                                     } else {
                                 %>
@@ -107,8 +107,8 @@
                 <%
                     if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                 %>
-                    <%--<button class="btn btn-outline-info" id="ouvrirModalNouveauLivre">Nouveau</button>--%>
-                    <a href="create"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>
+                <%--<button class="btn btn-outline-info" id="ouvrirModalNouveauLivre">Nouveau</button>--%>
+                <a href="create"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>
                 <%
                     }
                 %>
@@ -120,8 +120,8 @@
     <script type="text/javascript">
 
         <% if (request.getAttribute("errorDelete") == "Ok") { %>
-            var delay = 2000;
-            setTimeout(function(){ window.location = "listeLivres"; }, delay);
+        var delay = 2000;
+        setTimeout(function(){ window.location = "listeLivres"; }, delay);
         <%
             }
         %>

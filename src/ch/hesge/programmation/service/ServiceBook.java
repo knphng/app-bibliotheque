@@ -31,6 +31,15 @@ public class ServiceBook {
         em.persist(b);
     }
 
+    public void updateBook(int id, String title, String author, String editor, int year){
+        Book book = em.find(Book.class,id);
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setEditor(editor);
+        book.setYear(year);
+        em.merge(book);
+    }
+
     public void deleteBook(int id){
         Book book = em.find(Book.class,id);
         em.remove(book);
