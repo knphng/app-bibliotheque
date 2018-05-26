@@ -1,8 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="ch.hesge.programmation.domain.Book" %>
 <%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Liste des livres</title>
@@ -15,6 +14,15 @@
     </div>
     <br><br>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="message" style="display: none">
+                    <div class="alertMsg alert alert-success" role="alert">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
@@ -48,30 +56,30 @@
                                 <%
                                     if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                                 %>
-                                    <form action="update" method="post">
+                                    <form action="update" method="post" id="updateBookForm">
                                         <td>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="titleInput" value="<%= title %>"/>
+                                                <input id="titleInput" autofocus type="text" class="form-control" name="titleInput" value="<%= title %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="authorInput" value="<%= author %>"/>
+                                                <input id="authorInput" autofocus type="text" class="form-control" name="authorInput" value="<%= author %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="editorInput" value="<%= editor %>"/>
+                                                <input id="editorInput" autofocus type="text" class="form-control" name="editorInput" value="<%= editor %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="yearInput" value="<%= year %>"/>
+                                                <input autofocus id="yearInput" type="text" class="form-control" name="yearInput" value="<%= year %>"/>
                                                 <input type="hidden" class="form-control" name="idInput" value="<%= id %>"/>
                                             </div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
+                                            <button type="submit" class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
                                                 <i class="far fa-edit"></i>
                                             </button>
                                         </td>
@@ -102,29 +110,98 @@
         </div>
         <br><br>
         <div class="row">
-            <div class="col-md-11"></div>
-            <div class="col-md-1" style="float:right">
+            <div class="col-md-12" >
                 <%
                     if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
                 %>
-                <%--<button class="btn btn-outline-info" id="ouvrirModalNouveauLivre">Nouveau</button>--%>
-                <a href="create"><input type="submit" class="btn btn-outline-info" value="Nouveau" id="nouveauLivre"></a>
+                    <a href="create" style="float:right"><input type="submit" class="btn btn-outline-primary" value="Nouveau" id="nouveauLivre"></a>
                 <%
                     }
                 %>
             </div>
+        </div>
+
+        <div class="alertBottom alert alert-success" style="display:none;position: fixed;bottom: 5px;left:2%;width: 96%;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Votre livre a &eacute;t&eacute; mis &agrave; jour.
         </div>
     </div>
 
 
     <script type="text/javascript">
 
-        <% if (request.getAttribute("errorDelete") == "Ok") { %>
+
+       /* <% if (request.getAttribute("errorDelete") == "Ok") { %>
         var delay = 2000;
         setTimeout(function(){ window.location = "listeLivres"; }, delay);
         <%
             }
-        %>
+        %>*/
+
+        $('#updateBookForm').on('submit', function(){
+            var validate = false;
+            var inputYear = $('#yearInput').val();
+
+            var currentYear = (new Date).getFullYear();
+            if ($.isNumeric(inputYear)==false) {
+                validate = false;
+            } else {
+                if(inputYear.length != 4) {
+                    validate = false;
+                } else {
+                    validate = true;
+                }
+
+                if(inputYear > currentYear+1){
+                    validate = false;
+                }
+            }
+
+            if(validate == false){
+                $('#yearInput').css('color', 'red');
+                $('#yearInput').css('border-color', 'red');
+            } else {
+                $('#yearInput').css('color', '#495057');
+                $('#yearInput').css('border-color', '#ced4da');
+            }
+            return validate;
+        })
+
+
+       function getUrlParameter(sParam) {
+           var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+               sURLVariables = sPageURL.split('&'),
+               sParameterName,
+               i;
+
+           for (i = 0; i < sURLVariables.length; i++) {
+               sParameterName = sURLVariables[i].split('=');
+
+               if (sParameterName[0] === sParam) {
+                   return sParameterName[1] === undefined ? true : sParameterName[1];
+               }
+           }
+       };
+
+        var status = getUrlParameter("status");
+
+        if(status !=""){
+            if(status == "updated"){
+                $('.alertMsg').text("Le livre a été modifié avec succès !");
+                $(".message").fadeIn( 1500 );
+                setTimeout(function(){
+                    $(".message").fadeOut(1500);
+                }, 3000);
+                window.history.pushState({}, document.title, "/" + "books");
+            } else if (status == "deleted"){
+                $('.alertMsg').text("Le livre a été supprimé avec succès !");
+                $(".message").fadeIn(1500);
+                setTimeout(function(){
+                    $(".message").fadeOut(1500);
+                }, 3000);
+                window.history.pushState({}, document.title, "/" + "books");
+            }
+        }
 
     </script>
 </body>
