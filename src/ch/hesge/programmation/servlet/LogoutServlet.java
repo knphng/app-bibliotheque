@@ -10,7 +10,6 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.logout();
-        //response.sendRedirect("index.jsp");
         request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
     }
 }
