@@ -21,8 +21,9 @@
                 dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
         </div>
+            <img src="../ressources/bibliotheque.jpg"/>
         <div class="col-md-6" style="padding:5%">
-            <img src="images/bibliotheque.jpg"/>
+            <img src="../ressources/bibliotheque.jpg"/>
         </div>
     </div>
 </div>

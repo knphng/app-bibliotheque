@@ -34,7 +34,7 @@
             %>
             <br>
         </div>
-        <form method="post" action="newBook">
+        <form method="post" action="create">
             <div class="row">
                 <div class="col-md-3">
                     <label>Titre : </label>
@@ -76,15 +76,15 @@
                 </div>
             </div>
             <br><br>
-            <input type="submit" class="btn btn-outline-success" value="Cr&eacute;er" id="saveNouveauLivre">
+            <input type="submit" class="btn btn-outline-success" value="create" id="saveNouveauLivre">
         </form>
     </div>
 </body>
 
 <script>
-    <% if (request.getAttribute("status") == "Ok") { %>
+    <% if (request.getAttribute("status") == "created") { %>
         var delay = 2000;
-        setTimeout(function(){ window.location = "listeLivres"; }, delay);
+        setTimeout(function(){ window.location = "books"; }, delay);
     <%
         }
     %>
