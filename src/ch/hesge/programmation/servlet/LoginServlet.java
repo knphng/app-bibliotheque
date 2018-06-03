@@ -16,12 +16,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         try {
             request.login(login, password);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/");
             request.setAttribute("status", "ok");
             request.getSession().setAttribute("authentified", true);
         } catch (ServletException e) {
             request.setAttribute("status", "Error : Identifiant / mot de passe erroné");
-            request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/connexion.jsp").forward(request, response);
         }
     }
 
