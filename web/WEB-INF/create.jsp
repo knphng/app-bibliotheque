@@ -79,23 +79,21 @@
     })
 
     <% if(request.getAttribute("status") == "created") { %>
-        $('.alertMsg').text("Le livre a été ajouté avec succès !");
+        $('.alertMsg').text("Le livre a été modifié avec succès !");
         $('.alertMsg').addClass('alert-success');
         $(".message").fadeIn( 1500 );
         setTimeout(function(){
-            $(".message").fadeOut(1000);
-        }, 1500);
+            $(".message").fadeOut(1500);
+        }, 3000);
         var delay = 3000;
         setTimeout(function(){ window.location = "books"; }, delay);
-    <% } else  if(request.getAttribute("status") == "failed") { %>
+    <% } else if(request.getAttribute("status") == "failed") { %>
         $('.alertMsg').text("Un problème est survenu. Veuillez contacter votre administrateur !");
         $('.alertMsg').addClass('alert-danger');
         $(".message").fadeIn( 1500 );
         setTimeout(function(){
             $(".message").fadeOut(1000);
         }, 1500);
-        var delay = 3000;
-        setTimeout(function(){ window.location = "books"; }, delay);
     <% } %>
 
     $('#createBookForm').on('submit', function(){
