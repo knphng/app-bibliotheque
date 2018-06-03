@@ -19,7 +19,8 @@
         <br>
         <div class="msgErreur" style="color:red">
             <%
-                if(request.getAttribute("status")  != "ok"){
+                if(request.getAttribute("status") == null) { }
+                else if(!request.getAttribute("status").equals("ok")){
             %>
                 <div class="alert alert-danger" role="alert">
                     <%= request.getAttribute("status") %>
@@ -35,9 +36,9 @@
                 <div class="col-md-2">
                     <label>Identifiant : </label>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <div class="form-group">
-                        <input id="username" type="text" class="form-control" name="username"/>
+                        <input type="text" class="form-control" name="username"/>
                     </div>
                 </div>
             </div>
@@ -45,25 +46,21 @@
                 <div class="col-md-2">
                     <label>Mot de passe : </label>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <div class="form-group">
-                        <input id="password" type="password" class="form-control" name="password"/>
+                        <input type="password" class="form-control" name="password"/>
                     </div>
                 </div>
             </div>
 
             <br><br>
             <div class="row">
-                <div class="col-md-12" >
-                    <input type="submit" class="btn btn-outline-dark" value="Se connecter" style="float:right"/>
+                <div class="col-md-8"></div>
+                <div class="col-md-2" style="float:right">
+                    <input type="submit" class="btn btn-outline-dark" value="Se connecter" />
                 </div>
             </div>
         </form>
     </div>
-    <script>
-        $(document).ready(function(){
-            $('#username').focus();
-        })
-    </script>
 </body>
 </html>
