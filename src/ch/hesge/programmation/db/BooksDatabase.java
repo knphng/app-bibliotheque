@@ -5,10 +5,8 @@ import ch.hesge.programmation.domain.Book;
 import javax.inject.Inject;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 
 
-@WebListener
 public class BooksDatabase implements ServletContextListener {
     private final ServiceBook serviceBook;
 
