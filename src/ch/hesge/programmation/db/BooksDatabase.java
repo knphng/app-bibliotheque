@@ -19,11 +19,17 @@ public class BooksDatabase implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        Book firstBook = new Book("La Disparition de Stephanie Mailer", "Joël Dicker", " Editions Le Fallois", 2018);
-        Book secondBook = new Book("La Vérité sur l’Affaire Harry Quebert", "Joël Dicker", " Editions de Fallois / Age d’Homme", 2012);
+        Book bookOne = new Book("The President Is Missing", "Bill Clinton and James Patterson", " Little, Brown and Compagny and Knopf", 2018);
+        Book bookTwo = new Book("Oh, The Places you'll go !", "Dr. Seuss", " Random House", 1990);
+        Book bookThree = new Book("The Outsider", "Stephen King", " Scribner", 2018);
+        Book bookFour = new Book("12 Rules for life", "Jordan B Petterson", " Random House Canada", 2018);
+        Book bookFive = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", "Harper", 2016);
         if(serviceBook.listBook().size() <= 0){
-            serviceBook.addBook(firstBook);
-            serviceBook.addBook(secondBook);
+            serviceBook.addBook(bookOne);
+            serviceBook.addBook(bookTwo);
+            serviceBook.addBook(bookThree);
+            serviceBook.addBook(bookFour);
+            serviceBook.addBook(bookFive);
         }
     }
 

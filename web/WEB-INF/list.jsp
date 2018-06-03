@@ -131,13 +131,6 @@
     <script type="text/javascript">
 
 
-       /* <% if (request.getAttribute("errorDelete") == "Ok") { %>
-        var delay = 2000;
-        setTimeout(function(){ window.location = "listeLivres"; }, delay);
-        <%
-            }
-        %>*/
-
         $('#updateBookForm').on('submit', function(){
             var validate = false;
             var inputYear = $('#yearInput').val();

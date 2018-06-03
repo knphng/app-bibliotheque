@@ -31,7 +31,9 @@ public class BookCreateServlet extends HttpServlet {
             serviceBook.addBook(newOne);
             serviceBook.listBook();
             request.setAttribute("status", "created");
-            //request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
+            //response.sendRedirect(request.getContextPath()+"/WEB-INF/create");
+        request.getRequestDispatcher(request.getContextPath()+"/WEB-INF/create.jsp").forward(request, response);
+
         /*} catch (ServletException e) {
             request.setAttribute("status", "failed");
             request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
@@ -40,6 +42,7 @@ public class BookCreateServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
+        request.getRequestDispatcher(request.getContextPath()+"/WEB-INF/create.jsp").forward(request, response);
+
     }
 }
