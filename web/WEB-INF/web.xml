@@ -7,12 +7,13 @@
         <role-name>USER</role-name>
     </security-role>
     <servlet>
-        <servlet-name>Default</servlet-name>
+        <servlet-name>DefaultServlet</servlet-name>
         <servlet-class>ch.hesge.programmation.servlet.DefaultServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Default</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>DefaultServlet</servlet-name>
+        <url-pattern>/accueil</url-pattern>
+        <url-pattern>/index.html</url-pattern> <!-- permet d'afficher accueil au démarrage du serveur -->
     </servlet-mapping>
     <servlet>
         <servlet-name>Books</servlet-name>
@@ -62,16 +63,16 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Secure pages</web-resource-name>
-            <url-pattern>/create</url-pattern>
-            <url-pattern>/delete</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>USER</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Secure pages</web-resource-name>-->
+            <!--<url-pattern>/create</url-pattern>-->
+            <!--&lt;!&ndash;<url-pattern>/delete</url-pattern>&ndash;&gt;-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>USER</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
     <error-page>
         <error-code>403</error-code>
         <location>/WEB-INF/errors/403.jsp</location>

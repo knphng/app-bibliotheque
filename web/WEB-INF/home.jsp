@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Welcome</title>
@@ -22,7 +23,9 @@
             </p>
         </div>
         <div class="col-md-6" style="padding:5%">
-            <img src="../images/bibliotheque.jpg"/>
+            <!--<img src="../images/bibliotheque.jpg"/>-->
+            <img src="../images/bibliotheque.jpg">
+
         </div>
     </div>
 </div>
