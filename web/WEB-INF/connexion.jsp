@@ -19,7 +19,8 @@
         <br>
         <div class="msgErreur" style="color:red">
             <%
-                if(request.getAttribute("status")  != "ok"){
+                if(request.getAttribute("status") == null) { }
+                else if(!request.getAttribute("status").equals("ok")){
             %>
                 <div class="alert alert-danger" role="alert">
                     <%= request.getAttribute("status") %>
