@@ -6,7 +6,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <img src="../../images/oups.jpg" />
+        <img src="./images/oups.jpg" />
     </div>
 </div>
 
