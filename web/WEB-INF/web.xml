@@ -3,17 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <listener>
+        <listener-class>ch.hesge.programmation.db.BooksDatabase</listener-class>
+    </listener>
     <security-role>
         <role-name>USER</role-name>
     </security-role>
+    <security-role>
+        <role-name>TEST</role-name>
+    </security-role>
     <servlet>
-        <servlet-name>DefaultServlet</servlet-name>
+        <servlet-name>Default</servlet-name>
         <servlet-class>ch.hesge.programmation.servlet.DefaultServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DefaultServlet</servlet-name>
-        <url-pattern>/accueil</url-pattern>
-        <url-pattern>/index.html</url-pattern> <!-- permet d'afficher accueil au démarrage du serveur -->
+        <servlet-name>Default</servlet-name>
+        <url-pattern></url-pattern>
+        <!--<url-pattern>/index.html</url-pattern> &lt;!&ndash; permet d'afficher accueil au démarrage du serveur &ndash;&gt;-->
     </servlet-mapping>
     <servlet>
         <servlet-name>Books</servlet-name>
@@ -63,24 +69,28 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-    <!--<security-constraint>-->
-        <!--<web-resource-collection>-->
-            <!--<web-resource-name>Secure pages</web-resource-name>-->
-            <!--<url-pattern>/create</url-pattern>-->
-            <!--&lt;!&ndash;<url-pattern>/delete</url-pattern>&ndash;&gt;-->
-        <!--</web-resource-collection>-->
-        <!--<auth-constraint>-->
-            <!--<role-name>USER</role-name>-->
-        <!--</auth-constraint>-->
-    <!--</security-constraint>-->
-    <error-page>
-        <error-code>403</error-code>
-        <location>/WEB-INF/errors/403.jsp</location>
-    </error-page>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/WEB-INF/errors/404.jsp</location>
-    </error-page>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure pages</web-resource-name>
+            <url-pattern>/create</url-pattern>
+            <url-pattern>/delete</url-pattern>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>TEST</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <!--<error-page>-->
+        <!--<error-code>403</error-code>-->
+        <!--<location>/WEB-INF/errors/403.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--<error-code>404</error-code>-->
+        <!--<location>/WEB-INF/errors/404.jsp</location>-->
+    <!--</error-page>-->
     <!--@todo uncomment when all done and all working-->
     <!--<error-page>-->
         <!--<location>/WEB-INF/errors/global.jsp</location>-->

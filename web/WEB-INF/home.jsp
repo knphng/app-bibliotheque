@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-6" style="padding:5%">
             <!--<img src="../images/bibliotheque.jpg"/>-->
-            <img src="../images/bibliotheque.jpg">
+            <img src="./images/bibliotheque.jpg">
 
         </div>
     </div>
