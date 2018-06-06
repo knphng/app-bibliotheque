@@ -6,11 +6,15 @@
     <listener>
         <listener-class>ch.hesge.programmation.db.BooksDatabase</listener-class>
     </listener>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/WEB-INF/connexion.jsp</form-login-page>
+            <form-error-page>/WEB-INF/errors/403.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
     <security-role>
         <role-name>USER</role-name>
-    </security-role>
-    <security-role>
-        <role-name>TEST</role-name>
     </security-role>
     <servlet>
         <servlet-name>Default</servlet-name>
@@ -73,24 +77,23 @@
         <web-resource-collection>
             <web-resource-name>Secure pages</web-resource-name>
             <url-pattern>/create</url-pattern>
+            <url-pattern>/update</url-pattern>
             <url-pattern>/delete</url-pattern>
-            <http-method>POST</http-method>
+            <!--<http-method>GET</http-method>-->
+            <!--<http-method>POST</http-method>-->
         </web-resource-collection>
         <auth-constraint>
-            <role-name>TEST</role-name>
+            <role-name>USER</role-name>
         </auth-constraint>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
     </security-constraint>
-    <!--<error-page>-->
-        <!--<error-code>403</error-code>-->
-        <!--<location>/WEB-INF/errors/403.jsp</location>-->
-    <!--</error-page>-->
-    <!--<error-page>-->
-        <!--<error-code>404</error-code>-->
-        <!--<location>/WEB-INF/errors/404.jsp</location>-->
-    <!--</error-page>-->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/errors/403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/errors/404.jsp</location>
+    </error-page>
     <!--@todo uncomment when all done and all working-->
     <!--<error-page>-->
         <!--<location>/WEB-INF/errors/global.jsp</location>-->

@@ -30,9 +30,7 @@ public class BookUpdateServlet extends HttpServlet {
         serviceBook.updateBook(idBook, title, author, editor, year);
         serviceBook.listBook();
         request.setAttribute("status", "updated");
-//        request.getRequestDispatcher("/books").include(request, response);
-//        request.getRequestDispatcher("/WEB-INF/list.jsp").forward(request, response);
-        response.sendRedirect("/books?status=updated");
+        response.sendRedirect(request.getContextPath()+"/books?status=updated");
     }
 
 

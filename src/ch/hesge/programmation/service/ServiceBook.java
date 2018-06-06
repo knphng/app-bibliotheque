@@ -31,6 +31,7 @@ public class ServiceBook {
         em.persist(b);
     }
 
+    @Transactional
     public void updateBook(int id, String title, String author, String editor, int year){
         Book book = em.find(Book.class,id);
         book.setTitle(title);

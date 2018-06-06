@@ -24,7 +24,7 @@ public class BookDeleteServlet extends HttpServlet {
         serviceBook.deleteBook(idBook);
         serviceBook.listBook();
         request.setAttribute("errorDelete", "Ok");
-        response.sendRedirect("/books?status=deleted");
+        response.sendRedirect(request.getContextPath()+"/books?status=deleted");
     }
 
 

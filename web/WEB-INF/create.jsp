@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
+
 <html>
 <head>
-    <title>Liste des livres</title>
-    <%@ include file="entete.jsp" %>
+    <title>Créer un livre</title>
+    <%@ include file="header.jsp" %>
 </head>
 <body>
     <div class="" id="placeMenu" style="width:100%">
@@ -22,7 +24,7 @@
             </div>
             <br>
         </div>
-        <form method="post" action="create" id="createBookForm">
+        <form method="post" action="${pageContext.request.contextPath}/create" id="createBookForm">
             <div class="row">
                 <div class="col-md-2">
                     <label>Titre : </label>
@@ -78,16 +80,7 @@
         $('#title').focus();
     })
 
-    <% if(request.getAttribute("status") == "created") { %>
-        $('.alertMsg').text("Le livre a été modifié avec succès !");
-        $('.alertMsg').addClass('alert-success');
-        $(".message").fadeIn( 1500 );
-        setTimeout(function(){
-            $(".message").fadeOut(1500);
-        }, 3000);
-        var delay = 3000;
-        setTimeout(function(){ window.location = "books"; }, delay);
-    <% } else if(request.getAttribute("status") == "failed") { %>
+    <% if(request.getAttribute("status") == "failed") { %>
         $('.alertMsg').text("Un problème est survenu. Veuillez contacter votre administrateur !");
         $('.alertMsg').addClass('alert-danger');
         $(".message").fadeIn( 1500 );

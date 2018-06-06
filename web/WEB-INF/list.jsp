@@ -2,11 +2,12 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ch.hesge.programmation.domain.Book" %>
 <%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
+<%@ page import="sun.rmi.runtime.Log" %>
 <html>
 <head>
     <title>Liste des livres</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <%@ include file="entete.jsp" %>
+    <%@ include file="header.jsp" %>
 </head>
 <body>
     <div class="" id="placeMenu" style="width:100%">
@@ -32,14 +33,11 @@
                         <th>Auteur(s)</th>
                         <th>Editeur</th>
                         <th>Ann&eacute;e</th>
-                        <%
-                            if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
-                        %>
+                        <% if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true && session.getAttribute("status") == "ok"){ %>
+                        <%--<% if(request.getAttribute("isAutorized") == LoginServlet.UserRoleAccepted) { %>--%>
                             <th></th>
                             <th></th>
-                        <%
-                            }
-                        %>
+                        <% } %>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,10 +51,8 @@
                                 int year = listBooks.get(i).getYear();
                         %>
                             <tr>
-                                <%
-                                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
-                                %>
-                                    <form action="update" method="post" id="updateBookForm">
+                                <% if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true && session.getAttribute("status") == "ok"){ %>
+                                    <form action="${pageContext.request.contextPath}/update" method="post" id="updateBookForm">
                                         <td>
                                             <div class="form-group">
                                                 <input id="titleInput" autofocus type="text" class="form-control" name="titleInput" value="<%= title %>"/>
@@ -85,23 +81,19 @@
                                         </td>
                                     </form>
                                     <td>
-                                        <form method="post" action="delete">
+                                        <form method="post" action="${pageContext.request.contextPath}/delete">
                                             <input type="hidden" name="bookId" value="<%= id %>"/>
                                             <button type="submit" class="btn btn-outline-danger" aria-label="Left Align" value="<%= id %>">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
                                     </td>
-                                <%
-                                    } else {
-                                %>
+                                <% } else { %>
                                     <td> <%= title %></td>
                                     <td> <%= author %></td>
                                     <td> <%= editor %></td>
                                     <td> <%= year %></td>
-                                <%
-                                    }
-                                %>
+                                <% } %>
                             </tr>
                         <% } %>
                     </tbody>
@@ -111,13 +103,9 @@
         <br><br>
         <div class="row">
             <div class="col-md-12" >
-                <%
-                    if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true){
-                %>
-                    <a href="create" style="float:right"><input type="submit" class="btn btn-outline-primary" value="Nouveau" id="nouveauLivre"></a>
-                <%
-                    }
-                %>
+                <% if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true && session.getAttribute("status") == "ok"){ %>
+                    <a href="${pageContext.request.contextPath}/create" style="float:right"><input type="submit" class="btn btn-outline-primary" value="Nouveau" id="nouveauLivre"></a>
+                <% } %>
             </div>
         </div>
 
@@ -149,6 +137,7 @@
                     validate = false;
                 }
             }
+
 
             if(validate == false){
                 $('#yearInput').css('color', 'red');
@@ -188,6 +177,13 @@
                 window.history.pushState({}, document.title, "/" + "books");
             } else if (status == "deleted"){
                 $('.alertMsg').text("Le livre a été supprimé avec succès !");
+                $(".message").fadeIn(1500);
+                setTimeout(function(){
+                    $(".message").fadeOut(1500);
+                }, 3000);
+                window.history.pushState({}, document.title, "/" + "books");
+            } else if(status == "created") {
+                $('.alertMsg').text("Le livre a été créé avec succès !");
                 $(".message").fadeIn(1500);
                 setTimeout(function(){
                     $(".message").fadeOut(1500);
