@@ -13,7 +13,7 @@
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
                 <%  if  (request.isUserInRole(LoginServlet.UserRoleAccepted) && session.getAttribute("status") == "ok") { %>
-                    <a href="logout" role="button" class="btn btn-outline-dark">D&eacute;connexion</a>
+                    <a href="${pageContext.request.contextPath}/logout" role="button" class="btn btn-outline-dark">D&eacute;connexion</a>
                 <% }else{ %>
                     <a href="${pageContext.request.contextPath}/login" role="button" class="btn btn-outline-dark">Connexion</a>
                 <% } %>

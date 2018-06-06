@@ -23,6 +23,8 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
             } else {
                 session.setAttribute("status", "wrongRole");
+                request.logout();
+                request.getSession().invalidate();
                 request.getRequestDispatcher("WEB-INF/errors/403.jsp").forward(request, response);;
             }
         } catch (ServletException e) {

@@ -34,7 +34,6 @@
                         <th>Editeur</th>
                         <th>Ann&eacute;e</th>
                         <% if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true && session.getAttribute("status") == "ok"){ %>
-                        <%--<% if(request.getAttribute("isAutorized") == LoginServlet.UserRoleAccepted) { %>--%>
                             <th></th>
                             <th></th>
                         <% } %>
@@ -52,30 +51,30 @@
                         %>
                             <tr>
                                 <% if(request.isUserInRole(LoginServlet.UserRoleAccepted) == true && session.getAttribute("status") == "ok"){ %>
-                                    <form action="${pageContext.request.contextPath}/update" method="post" id="updateBookForm">
+                                    <form method="post" action="${pageContext.request.contextPath}/update" class="updateBookForm" data-id="<%= id %>">
                                         <td>
                                             <div class="form-group">
-                                                <input id="titleInput" autofocus type="text" class="form-control" name="titleInput" value="<%= title %>"/>
+                                                <input id="titleInput" autofocus type="text" class="form-control title<%= id %>" name="titleInput" value="<%= title %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input id="authorInput" autofocus type="text" class="form-control" name="authorInput" value="<%= author %>"/>
+                                                <input id="authorInput" autofocus type="text" class="form-control author<%= id %>" name="authorInput" value="<%= author %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input id="editorInput" autofocus type="text" class="form-control" name="editorInput" value="<%= editor %>"/>
+                                                <input id="editorInput" autofocus type="text" class="form-control editor<%= id %>" name="editorInput" value="<%= editor %>"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <input autofocus id="yearInput" type="text" class="form-control" name="yearInput" value="<%= year %>"/>
+                                                <input autofocus id="yearInput<%= id %>" type="number" class="form-control year<%= id %>" name="yearInput" value="<%= year %>"/>
                                                 <input type="hidden" class="form-control" name="idInput" value="<%= id %>"/>
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-outline-info" aria-label="Left Align" value="<%= id %>">
+                                            <button type="submit" class="btn btn-outline-info btnUpdateBook" aria-label="Left Align" value="<%= id %>">
                                                 <i class="far fa-edit"></i>
                                             </button>
                                         </td>
@@ -117,37 +116,38 @@
 
 
     <script type="text/javascript">
+        $(document).ready(function() {
 
+            $('.updateBookForm').on('submit', function () {
+                var id = $(this).attr("data-id");
+                var validate = false;
+                var inputYear = $('#yearInput'+id).val();
 
-        $('#updateBookForm').on('submit', function(){
-            var validate = false;
-            var inputYear = $('#yearInput').val();
-
-            var currentYear = (new Date).getFullYear();
-            if ($.isNumeric(inputYear)==false) {
-                validate = false;
-            } else {
-                if(inputYear.length != 4) {
+                var currentYear = (new Date).getFullYear();
+                if ($.isNumeric(inputYear) == false) {
                     validate = false;
                 } else {
-                    validate = true;
+                    if (inputYear.length != 4) {
+                        validate = false;
+                    } else {
+                        validate = true;
+                    }
+
+                    if (inputYear > currentYear + 1) {
+                        validate = false;
+                    }
                 }
 
-                if(inputYear > currentYear+1){
-                    validate = false;
+                if (validate == false) {
+                    $('#yearInput'+id).css('color', 'red');
+                    $('#yearInput'+id).css('border-color', 'red');
+                } else {
+                    $('#yearInput'+id).css('color', '#495057');
+                    $('#yearInput'+id).css('border-color', '#ced4da');
                 }
-            }
-
-
-            if(validate == false){
-                $('#yearInput').css('color', 'red');
-                $('#yearInput').css('border-color', 'red');
-            } else {
-                $('#yearInput').css('color', '#495057');
-                $('#yearInput').css('border-color', '#ced4da');
-            }
-            return validate;
-        })
+                return validate;
+            })
+        });
 
 
        function getUrlParameter(sParam) {
