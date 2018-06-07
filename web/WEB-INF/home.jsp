@@ -3,7 +3,12 @@
 <html>
 <head>
     <title>Welcome</title>
-    <%@ include file="entete.jsp" %>
+    <%@ include file="header.jsp" %>
+    <style>
+        p{
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
 <div class="" id="placeMenu" style="width:100%">
@@ -15,16 +20,21 @@
         <div class="col-md-6" style="padding:5%">
             <h1>Bienvenue dans notre bibliothèque virtuelle</h1>
             <br>
-            <p style="text-align:justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
+            <div style="text-align:justify;">
+                <p>
+                    Un jour, Marion l'avait trouvé plongé dans un livre qui racontait ce genre d'histoires.
+                    Ce jeune policier piquait constamment sa curiosité.
+                    Il faisait tout à sa manière, personnelle, il avait quelque chose de vieillot et d’anachronique, ne parlait de lui, n'appréciait pas vraiment la ville et ne s'intéressait pas au présent sauf pour exprimer son agacement face à l'époque actuelle.
+                    Buté, il faisait preuve d'une indépendance hors norme, n'éprouvait jamais le besoin de faire part de ses sentiments et passait son temps plongé dans son étrange passion, les récits de disparitions.
+                </p>
+                <br><br>
+                <p>
+                    Extrait de Le Lagon noir écrit par ARNALDUR INDRIDASON
+                </p>
+            </div>
         </div>
-        <div class="col-md-6" style="padding:5%">
-            <!--<img src="../images/bibliotheque.jpg"/>-->
-            <img src="./images/bibliotheque.jpg">
+        <div class="col-md-6" style="padding:5%;">
+            <img style="width:100%" src="./images/books.gif">
 
         </div>
     </div>
