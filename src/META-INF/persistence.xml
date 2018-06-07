@@ -3,12 +3,15 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>ch.hesge.programmation.Domain.Book</class>
         <properties>
-            <property name="openjpa.ConnectionURL" value=""/>
-            <property name="openjpa.ConnectionDriverName" value=""/>
-            <property name="openjpa.ConnectionUserName" value=""/>
-            <property name="openjpa.ConnectionPassword" value=""/>
-            <property name="openjpa.Log" value="DefaultLevel=TRACE, Tool=INFO"/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
+            <property name="tomee.jpa.factory.lazy" value="true"/>
         </properties>
     </persistence-unit>
+    <!--<persistence-unit name="BookManagement">-->
+        <!--<class>ch.hesge.programmation.Domain.Book</class>-->
+    <!--</persistence-unit>-->
 </persistence>
+

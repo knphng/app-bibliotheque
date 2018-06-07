@@ -13,7 +13,7 @@ Java EE small school project.
     - attribuer ce role à un de vos users (en créer un si vous n'avez pas d'utilisateurs)
 4. depuis le manager de Tomcat
     - choisir le fichier app_bibliotheque_kn_ds.war et le déployer
-    - aller sur le lien suivant :
+    - aller sur le lien suivant : http://localhost:8080/app_bibliotheque_kn_ds/
 5. tester l'application
 
 
