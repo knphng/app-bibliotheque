@@ -22,15 +22,16 @@ public class BookCreateServlet extends HttpServlet {
     public BookCreateServlet() { }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String title = request.getParameter("title");
-            String author = request.getParameter("author");
-            String editor = request.getParameter("editor");
-            int year = Integer.parseInt(request.getParameter("year"));
-            Book newOne = new Book(title, author, editor, year);
-            serviceBook.addBook(newOne);
-            serviceBook.listBook();
-            request.setAttribute("status", "created");
-            response.sendRedirect(request.getContextPath()+"/books?status=created");
+        request.setCharacterEncoding("UTF-8");
+        String title = request.getParameter("title");
+        String author = request.getParameter("author");
+        String editor = request.getParameter("editor");
+        int year = Integer.parseInt(request.getParameter("year"));
+        Book newOne = new Book(title, author, editor, year);
+        serviceBook.addBook(newOne);
+        serviceBook.listBook();
+        request.setAttribute("status", "created");
+        response.sendRedirect(request.getContextPath()+"/books?status=created");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

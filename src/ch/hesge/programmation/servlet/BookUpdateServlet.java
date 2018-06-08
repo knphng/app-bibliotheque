@@ -21,6 +21,7 @@ public class BookUpdateServlet extends HttpServlet {
     public BookUpdateServlet() { }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         int idBook = Integer.parseInt(request.getParameter("idInput"));
         String title = request.getParameter("titleInput");
         String author = request.getParameter("authorInput");
