@@ -1,6 +1,6 @@
 <%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <a href="/" class="navbar-brand d-flex w-50 mr-auto">Biblioth&egrave;que</a>
+    <a href="${pageContext.request.contextPath}/" class="navbar-brand d-flex w-50 mr-auto">Biblioth&egrave;que</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>

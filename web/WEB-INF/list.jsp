@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ch.hesge.programmation.domain.Book" %>
 <%@ page import="ch.hesge.programmation.servlet.LoginServlet" %>
-<%@ page import="sun.rmi.runtime.Log" %>
 <html>
 <head>
     <title>Liste des livres</title>

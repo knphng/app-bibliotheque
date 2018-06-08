@@ -14,7 +14,6 @@ import java.util.List;
 public class BookServlet extends HttpServlet {
 
     private ServiceBook serviceBook;
-    private List<Book> lstBooks;
 
     @Inject
     public BookServlet(ServiceBook serviceBook) {
@@ -29,8 +28,7 @@ public class BookServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        lstBooks = serviceBook.listBook();
-        request.setAttribute("listeLivre", lstBooks);
+        request.setAttribute("listeLivre", serviceBook.listBook());
         request.getRequestDispatcher("WEB-INF/list.jsp").forward(request, response);
     }
 }
